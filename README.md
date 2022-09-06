@@ -16,6 +16,12 @@ content: ["./src/**/*.{html,js}"],
 @tailwind utilities;
 ## tailwind css intelliSense 익스텐션 추가
 
+## tailwind-styled-components 설치
+npm i -D tailwind-styled-components
+
+## 스타일 컴포넌트 사용할 파일에 아래 import 추가
+import tw from "tailwind-styled-components";
+
 
 
 
