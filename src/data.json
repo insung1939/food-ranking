@@ -12,7 +12,8 @@
         "fat": 7,
         "carbohydrate": 23,
         "sodium": 465,
-        "price": 9900
+        "price": 9900,
+        "bigImgUrl": "/images/salad_big.png"
     },
     {
         "name": "모짜렐라와 첫사랑에 빠진 판다",
@@ -27,7 +28,8 @@
         "fat": 7,
         "carbohydrate": 23,
         "sodium": 465,
-        "price": 9900
+        "price": 9900,
+        "bigImgUrl": "/images/salad_big.png"
     },
     {
         "name": "단호박리코타치즈 샐러드",
@@ -42,7 +44,8 @@
         "fat": 7,
         "carbohydrate": 23,
         "sodium": 465,
-        "price": 9900
+        "price": 9900,
+        "bigImgUrl": "/images/salad_big.png"
     },
     {
         "name": "내가 몸짱이 될 샐러드 게맛살&메추리알 샐러드",
@@ -57,7 +60,8 @@
         "fat": 7,
         "carbohydrate": 23,
         "sodium": 465,
-        "price": 9900
+        "price": 9900,
+        "bigImgUrl": "/images/salad_big.png"
     },
     {
         "name": "밥보다샐러드 단호박무스&닭가슴살 햄 슬라이스",
@@ -72,7 +76,8 @@
         "fat": 7,
         "carbohydrate": 23,
         "sodium": 465,
-        "price": 9900
+        "price": 9900,
+        "bigImgUrl": "/images/salad_big.png"
     },
     {
         "name": "OK!COOK 그라나파다노 샐러드",
@@ -87,7 +92,8 @@
         "fat": 7,
         "carbohydrate": 23,
         "sodium": 465,
-        "price": 9900
+        "price": 9900,
+        "bigImgUrl": "/images/salad_big.png"
     },
     {
         "name": "닭가슴살볼샐러드 오리지널",
@@ -102,6 +108,7 @@
         "fat": 7,
         "carbohydrate": 23,
         "sodium": 465,
-        "price": 9900
+        "price": 9900,
+        "bigImgUrl": "/images/salad_big.png"
     }
 ]

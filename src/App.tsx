@@ -1,5 +1,5 @@
 import Main from "./pages/main";
-import Detail from "./pages/datail";
+import Detail from "./pages/detail";
 import tw from "tailwind-styled-components";
 import { Route, Routes } from "react-router-dom";
 

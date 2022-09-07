@@ -11,4 +11,5 @@ export interface ISaladData {
     carbohydrate: number
     sodium: number
     price: number
+    bigImgUrl: string
 }
