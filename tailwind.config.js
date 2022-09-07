@@ -14,6 +14,8 @@ module.exports = {
       orange: "#FBA408",
       boldOrange: "#F68500",
       lightGray: "#676E7F",
+      borderColor: "#30333F",
+      boxBgColor: "#1E2127",
     },
     extend: {},
   },

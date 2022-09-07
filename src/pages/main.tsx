@@ -10,7 +10,6 @@ export default function Main() {
   useEffect(() => {
     setSaladData(data as ISaladData[]);
   }, []);
-  console.log("saladData", saladData);
   return (
     <div className="pb-[50px]">
       <Title>푸드</Title>
