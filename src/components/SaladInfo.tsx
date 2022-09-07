@@ -27,13 +27,21 @@ export default function SaladInfo({ saladDetail }: SaladProps) {
     }
   };
   return (
-    <div className="mb-2">
+    <div className="mb-2 flex flex-auto">
       <SaladImg>
         <GradeBoxStyle className={showGradeBg(saladDetail.grade)}>
           {saladDetail.grade}
         </GradeBoxStyle>
-        <img src={saladDetail.imgUrl} alt="saladImg" className="h-full" />
+        <img
+          src={saladDetail.imgUrl}
+          alt="saladImg"
+          className="object-contain h-full min-w-[25%]"
+        />
       </SaladImg>
+      <div className="w-1/2">
+        <SaladCompany>{saladDetail.company}</SaladCompany>
+        <SaladName>{saladDetail.name}</SaladName>
+      </div>
     </div>
   );
 }
@@ -41,6 +49,8 @@ export default function SaladInfo({ saladDetail }: SaladProps) {
 const SaladImg = tw.div`
 h-[96px]
 flex
+mr-[12px]
+w-3/8
 `;
 
 const GradeBoxStyle = tw.div`
@@ -53,4 +63,16 @@ rounded-l-[10px]
 flex
 justify-center
 items-center
+`;
+
+const SaladCompany = tw.h6`
+mb-[2px]
+text-lightGray
+text-sm
+font-normal
+`;
+const SaladName = tw.p`
+font-normal
+text-white
+text-base
 `;

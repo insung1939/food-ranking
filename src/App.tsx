@@ -1,10 +1,15 @@
 import Main from "./pages/main";
+import Detail from "./pages/datail";
 import tw from "tailwind-styled-components";
+import { Route, Routes } from "react-router-dom";
 
 export default function App() {
   return (
     <Layout>
-      <Main />
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/detail" element={<Detail />} />
+      </Routes>
     </Layout>
   );
 }

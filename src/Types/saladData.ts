@@ -10,4 +10,5 @@ export interface ISaladData {
     fat: number
     carbohydrate: number
     sodium: number
+    price: number
 }

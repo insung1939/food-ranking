@@ -22,6 +22,21 @@ npm i -D tailwind-styled-components
 ## 스타일 컴포넌트 사용할 파일에 아래 import 추가
 import tw from "tailwind-styled-components";
 
+## react-router-dom@6 설치
+npm install react-router-dom@6
+
+## 최상단의 index.tsx에서 <BrowserRouter> 추가
+
+## 라우터를 메인페이지에서 지정
+```
+<Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/detail" element={<Detail />} />
+</Routes>
+```
+
+## Link와 useNavige로 원하는 페이지로 이동한다
+
 
 
 
