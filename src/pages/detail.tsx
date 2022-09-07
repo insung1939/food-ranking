@@ -2,10 +2,41 @@ import { useLocation } from "react-router-dom";
 import Header from "../components/Header";
 import tw from "tailwind-styled-components";
 import { ISaladData } from "../Types/saladData";
+import { IStandard } from "../Types/standard";
+import { useEffect } from "react";
 
 export default function Detail() {
+  const standard: IStandard = {
+    carbohydratePer: 50,
+    proteinPer: 20,
+    fatPer: 30,
+    totalCalorie: 2000,
+    totalCarbohydrate: 328,
+    totalProtein: 55,
+    totalFat: 50,
+    totalSodium: 2000,
+  };
   const location = useLocation();
   const saladData = location.state as ISaladData;
+  const calPercentDiff = (percent: string, standard: number) => {
+    const diff = parseInt(percent) - standard;
+    if (diff > 0) {
+      return "+" + diff;
+    } else {
+      return "-" + Math.abs(diff);
+    }
+  };
+
+  const carbohydrateChange = calPercentDiff(
+    saladData.carbohydratePer,
+    standard.carbohydratePer
+  );
+  const proteinChange = calPercentDiff(
+    saladData.proteinPer,
+    standard.proteinPer
+  );
+  const fatChange = calPercentDiff(saladData.fatPer, standard.fatPer);
+
   const showGradeBg = (grade: string) => {
     switch (grade) {
       case "A+":
@@ -26,6 +57,7 @@ export default function Detail() {
         break;
     }
   };
+
   return (
     <>
       <Header />
@@ -63,26 +95,46 @@ export default function Detail() {
         A~C까지의 등급으로 표기하였습니다.
       </InfoStyle>
       <NutrientGrid>
-        <NutrientBox className={showGradeBg(saladData.grade)}>
+        <GradeInfoBox className={showGradeBg(saladData.grade)}>
           <GradeTextStyle>{saladData.grade}</GradeTextStyle>
           <BottomTextStyle>영양소 비율 등급</BottomTextStyle>
-        </NutrientBox>
-        <NutrientBox className="bg-boxBgColor">
+        </GradeInfoBox>
+        <InfoBox className="h-[140px]">
           <PercentTextStyle>{saladData.carbohydratePer}</PercentTextStyle>
           <SmallTextStyle>적정 비율 50%</SmallTextStyle>
+          <PercentDiff
+            className={
+              carbohydrateChange[0] === "+" ? "text-red" : "text-green"
+            }
+          >
+            {carbohydrateChange}%
+          </PercentDiff>
           <BottomTextStyle>탄수화물</BottomTextStyle>
-        </NutrientBox>
-        <NutrientBox className="bg-boxBgColor">
+        </InfoBox>
+        <InfoBox className="h-[140px]">
           <PercentTextStyle>{saladData.proteinPer}</PercentTextStyle>
           <SmallTextStyle>적정 비율 20%</SmallTextStyle>
+          <PercentDiff
+            className={proteinChange[0] === "+" ? "text-red" : "text-green"}
+          >
+            {proteinChange}%
+          </PercentDiff>
           <BottomTextStyle>단백질</BottomTextStyle>
-        </NutrientBox>
-        <NutrientBox className="bg-boxBgColor">
+        </InfoBox>
+        <InfoBox className="h-[140px]">
           <PercentTextStyle>{saladData.fatPer}</PercentTextStyle>
           <SmallTextStyle>적정 비율 30%</SmallTextStyle>
+          <PercentDiff
+            className={fatChange[0] === "+" ? "text-red" : "text-green"}
+          >
+            {fatChange}%
+          </PercentDiff>
           <BottomTextStyle>지방</BottomTextStyle>
-        </NutrientBox>
+        </InfoBox>
       </NutrientGrid>
+      <TitleStyle>칼로리 정보</TitleStyle>
+      <InfoStyle>하루 2000칼로리의 식단을 기준으로 합니다.</InfoStyle>
+      <InfoBox className="h-[78px] mt-[16px]"></InfoBox>
     </>
   );
 }
@@ -139,10 +191,17 @@ pt-[8px]
 pb-[40px]
 `;
 
-const NutrientBox = tw.div`
+const GradeInfoBox = tw.div`
 rounded-md
 p-[16px]
 h-[140px]
+`;
+
+const InfoBox = tw.div`
+rounded-md
+p-[16px]
+bg-boxBgColor
+relative
 `;
 
 const GradeTextStyle = tw.span`
@@ -155,6 +214,14 @@ const PercentTextStyle = tw.span`
 font-bold
 text-white
 text-[30px]
+`;
+
+const PercentDiff = tw.span`
+font-bold
+text-lg
+absolute
+right-[16px]
+top-[16px]
 `;
 
 const SmallTextStyle = tw.p`
